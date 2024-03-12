@@ -1,4 +1,8 @@
 import logo from "../images/logo.svg";
+import { socialLinks } from "../Data";
+import PageLinks from "./Pagelinks";
+import SocialLink from "./SocialLink";
+
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -10,64 +14,23 @@ const Navbar = () => {
           </button>
         </div>
         {/* <!-- left this comment on purpose --> */}
-        <ul className="nav-links" id="nav-links">
-          <li>
-            <a href="#home" className="nav-link">
-              {" "}
-              home{" "}
-            </a>
-          </li>
-
-          <li>
-            <a href="#about" className="nav-link">
-              {" "}
-              about{" "}
-            </a>
-          </li>
-
-          <li>
-            <a href="#services" className="nav-link">
-              {" "}
-              services{" "}
-            </a>
-          </li>
-
-          <li>
-            <a href="#tours" className="nav-link">
-              {" "}
-              tours
-            </a>
-          </li>
-        </ul>
+        {/* <ul className="nav-links" id="nav-links">
+          {pageLinks.map((link) => {
+            return (
+              <li key={link.id}>
+                <a href={link.href} className="nav-link">
+                  {link.text}
+                </a>
+              </li>
+            );
+          })}
+        </ul> */}
+        <PageLinks parentClass="nav-links" itemClass="nav-link" />
 
         <ul className="nav-icons">
-          <li>
-            <a
-              href="https://www.twitter.com"
-              target="_blank"
-              className="nav-icon"
-            >
-              <i className="fab fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.twitter.com"
-              target="_blank"
-              className="nav-icon"
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.twitter.com"
-              target="_blank"
-              className="nav-icon"
-            >
-              <i className="fab fa-squarespace"></i>
-            </a>
-          </li>
+          {socialLinks.map((link) => {
+            return <SocialLink key={link.id} {...link} itemClass="nav-icon" />;
+          })}
         </ul>
       </div>
     </nav>
